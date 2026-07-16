@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState, useRef } from "react";
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 import { Bug, AlertTriangle, Info, CheckCircle2, Terminal, Moon, Briefcase, Dumbbell, Smartphone, Coffee, Send, Loader2, Plus, MessageSquare } from "lucide-react";
-
 const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
 const todayStr = () => new Date().toISOString().slice(0, 10);
 const pad = (n) => String(n).padStart(2, "0");
@@ -423,19 +422,29 @@ export default function App() {
           <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
           <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-          <span className="ml-3 flex items-center gap-1 text-xs">
-            <button
-              onClick={() => setTab("diary")}
-              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-t ${tab === "diary" ? "bg-slate-950 text-slate-200" : "text-slate-500 hover:text-slate-300"}`}
+          <span className="ml-3 flex items-center justify-between flex-1 text-xs">
+            <span className="flex items-center gap-1">
+              <button
+                onClick={() => setTab("diary")}
+                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-t ${tab === "diary" ? "bg-slate-950 text-slate-200" : "text-slate-500 hover:text-slate-300"}`}
+              >
+                <Terminal size={11} /> moms-routine.log
+              </button>
+              <button
+                onClick={() => setTab("ask")}
+                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-t ${tab === "ask" ? "bg-slate-950 text-slate-200" : "text-slate-500 hover:text-slate-300"}`}
+              >
+                <Terminal size={11} /> ask.sh
+              </button>
+            </span>
+            <a
+              href="https://github.com/danielqiu25/life-debugger"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-slate-500 hover:text-slate-300 pr-1"
             >
-              <Terminal size={11} /> moms-routine.log
-            </button>
-            <button
-              onClick={() => setTab("ask")}
-              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-t ${tab === "ask" ? "bg-slate-950 text-slate-200" : "text-slate-500 hover:text-slate-300"}`}
-            >
-              <Terminal size={11} /> ask.sh
-            </button>
+              Github Link to Repository
+            </a>
           </span>
         </div>
 

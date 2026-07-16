@@ -1,3 +1,5 @@
+**Live demo:** https://life-debugger-gamma.vercel.app/
+
 # Life Debugger
 
 Debug your daily routine — track habits, trace what's draining your energy, and ask why.
@@ -58,6 +60,6 @@ This is a lifestyle pattern demo, not medical advice. The scoring is an illustra
 
 ## Future work
 
+- Multi-user accounts with a real backend (e.g. Supabase/Firebase), so data persists across devices instead of being tied to one browser via localStorage
 - Real correlation analysis across weeks of data instead of a hand-tuned heuristic
 - Calendar or wearable integration for automatic logging
-- Multi-user support
