@@ -216,7 +216,8 @@ function ChatPanel({ entries, messages, onMessagesChange }) {
       const contextNote = entries.length
         ? `Logged entries (most recent last): ${JSON.stringify(entries.slice(-7))}`
         : "No entries logged yet.";
-      const response = await fetch("http://localhost:3001/api/chat", {
+      const apiUrl = import.meta.env.PROD ? "/api/chat" : "http://localhost:3001/api/chat";
+      const response = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
